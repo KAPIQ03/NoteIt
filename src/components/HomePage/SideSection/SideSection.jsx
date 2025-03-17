@@ -7,7 +7,7 @@ import { FaArrowRight } from 'react-icons/fa6';
 const LogIn = () => {
 	return (
 		<div className={style.login}>
-			<h3>Zaloguj się</h3>
+			<h3>Zaloguj się </h3>
 			<form>
 				<div className={style.textbox}>
 					<input type='text' required />
@@ -41,6 +41,10 @@ const SignUp = () => {
 				<div className={style.textbox}>
 					<input type='password' required />
 					<label>Hasło</label>
+				</div>
+				<div className={style.textbox}>
+					<input type='password' required />
+					<label>Powtórz Hasło</label>
 				</div>
 				<button type='submit'>
 					<p>Zaloguj</p>

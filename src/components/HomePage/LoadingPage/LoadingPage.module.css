@@ -57,11 +57,11 @@ p {
 }
 .bloobBottom svg {
 	fill: #ff0066;
-	animation: bloobFadeIn 1.1s ease-in-out;
+	animation: bloobFadeIn 1.1s ease-in-out, spin 60s 1.1s linear infinite;
 }
 .bloobTop svg {
 	fill: #ff0066;
-	animation: bloobFadeIn 1.1s ease-in-out;
+	animation: bloobFadeIn 1.1s ease-in-out, spin 100s 1.1s linear infinite;
 }
 @keyframes bloobFadeIn {
 	0% {
@@ -71,6 +71,11 @@ p {
 	100% {
 		fill: #ff0066;
 		transform: scale(1);
+	}
+}
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
 	}
 }
 @media screen and (max-width: 1920px) {
