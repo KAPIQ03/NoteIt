@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const AppContainers = () => {
+export const AppContainer = () => {
 	return (
 		<div>
 			<div className='container'>

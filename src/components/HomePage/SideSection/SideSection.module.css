@@ -109,13 +109,47 @@ input {
 	font-weight: 500;
 	color: #fcfcfc;
 }
+.alert {
+	overflow: hidden;
+	text-align: center;
+	color: #ff3939;
+	font-size: 1.2rem;
+	font-weight: 300;
+	height: 0;
+	transition: 0.3s;
+}
+.error {
+	box-shadow: 0 0 0 2px #ff3939;
+	border-radius: 8px;
+	animation: error-shaking 0.4s ease;
+}
+.valid {
+	height: 32px;
+}
 @media screen and (max-width: 1920px) {
 	h3 {
 		font-size: 2.2rem;
 		margin: 1.5rem;
 		letter-spacing: 0.05rem;
 	}
-	.login input{
+	.login input {
 		font-size: 1rem;
+	}
+}
+@keyframes error-shaking {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(10px);
+	}
+	50% {
+		transform: translateX(-10px);
+	}
+	75% {
+		transform: translateX(10px);
+	}
+	100% {
+		transform: translateX(0);
 	}
 }
