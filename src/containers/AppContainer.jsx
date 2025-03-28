@@ -1,11 +1,13 @@
 import React from 'react';
+import { ListOfNotes } from '../components/AppContainer/ListOfNotes/ListOfNotes';
+import { Workspace } from '../components/AppContainer/Workspace/Workspace';
 
 export const AppContainer = () => {
 	return (
 		<div>
 			<div className='container'>
-				<aside className='sidebar'> Lista</aside>
-				<main className='workspace'>Main</main>
+				<ListOfNotes />
+				<Workspace />
 			</div>
 		</div>
 	);
