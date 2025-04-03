@@ -4,6 +4,7 @@
 	background-color: #0d0d0d;
 	color: #fcfcfc;
 	padding: 1rem;
+	padding-top:0.3rem;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -17,7 +18,7 @@
 	align-items: center;
 	justify-content: center;
 	padding: 0.3rem 1rem;
-	border-bottom: 2px solid #fcfcfc50;
+	border-bottom: 3px solid #fcfcfc20;
 }
 h2 {
 	display: block;
@@ -33,8 +34,8 @@ h2 {
 	margin-right: 0.7rem;
 }
 .container button {
-	width: 70%;
-	transition: 0.2s ease;
+	width: 40%;
+	transition: 0.3s ease;
 	background-color: #ffffff15;
 	color: #fcfcfc50;
 	font-family: 'Outfit';
@@ -44,7 +45,7 @@ h2 {
 	font-weight: 500;
 }
 .container button:hover {
-	background-color: #fcfcfc;
+	background-color: #ff0066;
 	color: #0d0d0d;
 	cursor: pointer;
 }
@@ -61,8 +62,8 @@ h2 {
 	border-left: 10px solid #0d0d0d;
 }
 .note {
-	margin: 1rem 0;
-	max-width: 100%;
+	margin-bottom: 1rem;
+	max-width: 90%;
 	padding: 7px;
 	border-radius: 5px;
 	background-color: #fcfcfc10;
@@ -74,7 +75,7 @@ h2 {
 	font-weight: 400;
 }
 .note:hover {
-	background-color: #fcfcfc90;
+	background-color: #fcfcfc;
 	color: #0d0d0d;
 	cursor: pointer;
 }
