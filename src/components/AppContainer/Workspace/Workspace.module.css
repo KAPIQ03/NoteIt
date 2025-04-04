@@ -1,5 +1,66 @@
 .workspace {
 	width: 85%;
-	height: 100hv;
 	background-color: #f2f2f2;
+	overflow: scroll;
+	padding: 2rem;
+	font-size: 1rem;
 }
+.workspace * {
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+	word-wrap: break-word;
+}
+.title {
+	padding-bottom: 0.7rem;
+	border-bottom: 3px solid #ccc;
+	margin-bottom: 1rem;
+}
+.workspace h1 {
+	font-size: 4rem;
+}
+.workspace h2 {
+	font-size: 3rem;
+}
+.workspace h3 {
+	font-size: 2rem;
+}
+.line {
+	margin-bottom: 5px;
+}
+.workspace p {
+	padding: 5px 0;
+}
+.workspace strong {
+	font-weight: 600;
+}
+.workspace ul,
+ol {
+	margin-left: 1.5rem;
+	list-style-position: inside;
+}
+.workspace img{
+	width:500px;
+	border-radius:5px;
+}
+.editLine {
+	border: 2px solid #ff0066;
+	background-color: #FFFFFF90;
+	border-radius: 5px;
+	padding: 10px;
+	min-height: 20px;
+	cursor: text;
+	outline: none;
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 1rem;
+	font-family: 'Inter';
+	word-wrap: break-word;
+}
+.markdownTag {
+	cursor: pointer;
+}
+.markdownTag p:has(img){
+	text-align: center;
+}
+
