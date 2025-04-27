@@ -7,6 +7,7 @@
 	padding-top:0.3rem;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	flex-direction: column;
 }
 .header {
@@ -34,25 +35,36 @@ h2 {
 	margin-right: 0.7rem;
 }
 .container button {
-	width: 40%;
+	display: inline-flex;
+	justify-content:center;
+	align-items: center;
 	transition: 0.3s ease;
 	background-color: #ffffff15;
 	color: #fcfcfc50;
-	font-family: 'Outfit';
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	border-radius: 5px;
 	border: 0;
-	font-weight: 500;
+	padding: 6px 10px;
+	margin:2px;
 }
 .container button:hover {
 	background-color: #ff0066;
 	color: #0d0d0d;
 	cursor: pointer;
 }
+.container > .buttons{
+	width:100%;
+	display: inline-flex;
+	justify-content: space-around;
+}
 .listOfNotes {
 	width: 95%;
+	height:100%;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
 	margin: 1rem 0;
-	overflow: auto;
+	overflow:auto;
 }
 .listOfNotes::-webkit-scrollbar {
 	width: 0.9rem;
@@ -63,7 +75,7 @@ h2 {
 }
 .note {
 	margin-bottom: 1rem;
-	max-width: 90%;
+	width: 90%;
 	padding: 7px;
 	border-radius: 5px;
 	background-color: #fcfcfc10;
@@ -79,3 +91,11 @@ h2 {
 	color: #0d0d0d;
 	cursor: pointer;
 }
+.container a{
+	text-decoration: none;
+}
+.activeNote{
+	background-color: #a7a7a7;
+	color: #0d0d0d;;
+}
+

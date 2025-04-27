@@ -9,7 +9,7 @@ function App() {
 		<div className='App'>
 			<Routes>
 				<Route index path='/*' element={<HomePage />} />
-				<Route path='appContainer' element={<AppContainer />} />
+				<Route path='appContainer/*' element={<AppContainer />} />
 			</Routes>
 		</div>
 	);

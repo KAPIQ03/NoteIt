@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
+import { React, useState } from 'react';
+import { Link } from 'react-router-dom';
 import style from './ListOfNotes.module.css';
 import assets from '../../../constants/assets';
+import {
+	FaCircleQuestion,
+	FaFileCirclePlus,
+	FaTrashCan,
+	FaDownload,
+} from 'react-icons/fa6';
+import { useNavigate } from 'react-router';
 
-let nextId = 0;
-
-export const ListOfNotes = () => {
-	const [listOfNotes, setListOfNotes] = useState([]);
-	const addNewNotes = () => {
-		setListOfNotes([
-			...listOfNotes,
-			{
-				id: nextId++,
-				name: 'New Note',
-			},
-		]);
-		console.log(listOfNotes);
+export const ListOfNotes = ({ listOfNotes, addNewNote, deleteNote }) => {
+	const [selectedNoteId, setSelectedNoteId] = useState(null);
+	const navigate = useNavigate();
+	const moveToHome = () => {
+		navigate('/appContainer');
+	};
+	const handleNoteClick = noteId => {
+		setSelectedNoteId(noteId);
 	};
 	return (
 		<div className={style.container}>
@@ -28,12 +31,36 @@ export const ListOfNotes = () => {
 					<h2>Note it</h2>
 				</div>
 			</div>
-			<button onClick={addNewNotes}>+</button>
+			<div className={style.buttons}>
+				<button onClick={moveToHome}>
+					<FaCircleQuestion />
+				</button>
+				<button onClick={addNewNote}>
+					<FaDownload />
+				</button>
+				<button
+					onClick={() => {
+						deleteNote(selectedNoteId);
+						setSelectedNoteId(0);
+					}}>
+					<FaTrashCan />
+				</button>
+				<button onClick={addNewNote}>
+					<FaFileCirclePlus />
+				</button>
+			</div>
 			<div className={style.listOfNotes}>
 				{listOfNotes.map(note => (
-					<div key={note.id} className={style.note}>
+					<Link
+						to={`/appContainer/${note.id}`}
+						key={note.id}
+						onClick={() => handleNoteClick(note.id)}
+						className={[
+							style.note,
+							note.id === selectedNoteId ? style.activeNote : '',
+						].join(' ')}>
 						{note.name}
-					</div>
+					</Link>
 				))}
 			</div>
 		</div>

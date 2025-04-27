@@ -12,18 +12,26 @@
 	word-wrap: break-word;
 }
 .title {
+	background-color: #f2f2f2;
 	padding-bottom: 0.7rem;
+	border:0;
 	border-bottom: 3px solid #ccc;
+	outline:0;
 	margin-bottom: 1rem;
+	font-size: 4rem;
+	font-family: 'Outfit';
+	font-weight: 700;
+	cursor:pointer;
+	width:100%;
 }
 .workspace h1 {
-	font-size: 4rem;
-}
-.workspace h2 {
 	font-size: 3rem;
 }
-.workspace h3 {
+.workspace h2 {
 	font-size: 2rem;
+}
+.workspace h3 {
+	font-size: 1.2rem;
 }
 .line {
 	margin-bottom: 5px;
@@ -42,6 +50,11 @@ ol {
 .workspace img{
 	width:500px;
 	border-radius:5px;
+}
+.workspace hr{
+	background-color:#ccc;
+	border:0;
+	height:2px;
 }
 .editLine {
 	border: 2px solid #ff0066;

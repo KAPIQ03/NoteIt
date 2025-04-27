@@ -1,17 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
-import ContentEditable from 'react-contenteditable';
+import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import style from './Workspace.module.css';
 
-export const Workspace = () => {
+export const Workspace = ({ listOfNotes, updateNoteName }) => {
+	const { noteId } = useParams();
 	const [lines, setLines] = useState(['']); // Lista linii edytora
 	const [editableIndex, setEditableIndex] = useState(0); // Pierwsza linia aktywna domyślnie
-	const inputRefs = useRef([]); // Przechowuje referencje do elementów ContentEditable
+	const inputRefs = useRef([]); // Przechowuje referencje do elementów
+	const note = listOfNotes.find(note => note.id === parseInt(noteId));
+	const [noteName, setNoteName] = useState(note ? note.name : '');
 
-	// Upewnia się, że kursor przejdzie do nowej linii
 	useEffect(() => {
 		if (editableIndex !== null && inputRefs.current[editableIndex]) {
-			inputRefs.current[editableIndex].focus(); // Skupienie na nowej linii
+			inputRefs.current[editableIndex].focus();
 		}
 	}, [editableIndex]);
 
@@ -19,15 +21,14 @@ export const Workspace = () => {
 		if (e.key === 'Enter') {
 			e.preventDefault();
 			if (index === 0 && lines[0].trim() === '') {
-				// Jeśli pierwsza linia jest pusta, nie pozwalamy na przejście dalej
 				return;
-			}
+			} //!
 			setLines(prevLines => {
 				const newLines = [...prevLines];
-				newLines.splice(index + 1, 0, ''); // Dodajemy pustą linię po aktualnej
+				newLines.splice(index + 1, 0, '');
 				return newLines;
 			});
-			setEditableIndex(index + 1); // Przejście kursorem do nowej linii
+			setEditableIndex(index + 1);
 		} else if (
 			e.key === 'Backspace' &&
 			lines[index] === '' &&
@@ -35,10 +36,10 @@ export const Workspace = () => {
 		) {
 			e.preventDefault();
 			setLines(prevLines => {
-				const newLines = prevLines.filter((_, i) => i !== index); // Usuwamy pustą linię
+				const newLines = prevLines.filter((_, i) => i !== index);
 				return newLines;
 			});
-			setEditableIndex(index > 0 ? index - 1 : 0); // Przenosimy kursor do poprzedniej linii
+			setEditableIndex(index > 0 ? index - 1 : 0);
 		}
 	};
 
@@ -52,15 +53,24 @@ export const Workspace = () => {
 
 	const handleClick = index => {
 		if (lines[0].trim() === '' && index !== 0) {
-			return; // Nie pozwalamy na zmianę linii, jeśli pierwsza jest pusta
+			return;
 		}
 		setEditableIndex(index);
+	};
+
+	const handleNameChange = e => {
+		setNoteName(e.target.value);
+		updateNoteName(parseInt(noteId), e.target.value);
 	};
 
 	return (
 		<div className={style.workspace}>
 			<div>
-				<h1 className={style.title}>New Note</h1>
+				<input
+					className={style.title}
+					value={note?note.name:noteName}
+					onChange={handleNameChange}
+				/>
 			</div>
 			<div>
 				{lines.map((line, index) => (
@@ -74,16 +84,14 @@ export const Workspace = () => {
 								onKeyDown={e => handleKeyDown(e, index)}
 								onBlur={() => {
 									if (index === 0 && lines[0].trim() === '') {
-										setEditableIndex(0); // Wymuszamy skupienie na pierwszej linii
+										setEditableIndex(0);
 									} else {
 										setEditableIndex(null);
 									}
 								}}
-								// tagName='div'
 								className={style.editLine}
 							/>
 						) : (
-							// Kliknięcie na tekst przełącza do edycji
 							<div
 								onClick={() => handleClick(index)}
 								className={style.markdownTag}>

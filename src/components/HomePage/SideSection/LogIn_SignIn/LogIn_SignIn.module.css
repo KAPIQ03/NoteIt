@@ -155,9 +155,6 @@ button:disabled:hover .arrow {
 .show {
 	max-height: 150px;
 }
-li::marker {
-	color: #ff0066;
-}
 
 @media screen and (max-width: 1920px) {
 	h3 {
