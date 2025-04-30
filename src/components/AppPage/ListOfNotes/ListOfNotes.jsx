@@ -10,11 +10,16 @@ import {
 } from 'react-icons/fa6';
 import { useNavigate } from 'react-router';
 
-export const ListOfNotes = ({ listOfNotes, addNewNote, deleteNote }) => {
+export const ListOfNotes = ({
+	listOfNotes,
+	addNewNote,
+	deleteNote,
+	printWorkspace,
+}) => {
 	const [selectedNoteId, setSelectedNoteId] = useState(null);
 	const navigate = useNavigate();
 	const moveToHome = () => {
-		navigate('/appContainer');
+		navigate('/AppPage');
 	};
 	const handleNoteClick = noteId => {
 		setSelectedNoteId(noteId);
@@ -31,11 +36,12 @@ export const ListOfNotes = ({ listOfNotes, addNewNote, deleteNote }) => {
 					<h2>Note it</h2>
 				</div>
 			</div>
+			<hr />
 			<div className={style.buttons}>
 				<button onClick={moveToHome}>
 					<FaCircleQuestion />
 				</button>
-				<button onClick={addNewNote}>
+				<button onClick={printWorkspace}>
 					<FaDownload />
 				</button>
 				<button
@@ -52,14 +58,16 @@ export const ListOfNotes = ({ listOfNotes, addNewNote, deleteNote }) => {
 			<div className={style.listOfNotes}>
 				{listOfNotes.map(note => (
 					<Link
-						to={`/appContainer/${note.id}`}
+						to={`/AppPage/${note.id}`}
 						key={note.id}
 						onClick={() => handleNoteClick(note.id)}
 						className={[
 							style.note,
 							note.id === selectedNoteId ? style.activeNote : '',
 						].join(' ')}>
-						{note.name}
+						{note.name.length > 20 || note.name.length === 0
+							? note.name.slice(0, 20) + '...'
+							: note.name}
 					</Link>
 				))}
 			</div>

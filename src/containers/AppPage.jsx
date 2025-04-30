@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Routes, Route ,useNavigate} from 'react-router-dom';
-import { ListOfNotes } from '../components/AppContainer/ListOfNotes/ListOfNotes';
-import { Workspace } from '../components/AppContainer/Workspace/Workspace';
-import { StartPage } from '../components/AppContainer/StartPage/StartPage';
+import { ListOfNotes } from '../components/AppPage/ListOfNotes/ListOfNotes';
+import { Workspace } from '../components/AppPage/Workspace/Workspace';
+import { StartPage } from '../components/AppPage/HomePage/HomePage';
 
-export const AppContainer = () => {
+export const AppPage = () => {
 	const [listOfNotes, setListOfNotes] = useState([]);
 	const navigate = useNavigate();
 	const addNewNote = () => {
@@ -18,7 +18,7 @@ export const AppContainer = () => {
 	};
 	const deleteNote = id => {
 		setListOfNotes(prevNotes => prevNotes.filter(note => note.id !== id));
-		navigate(`/appContainer/`)
+		navigate(`/AppPage/`)
 	};
 	const updateNoteName = (id, newName) => {
 		setListOfNotes(prevNotes =>
@@ -27,6 +27,15 @@ export const AppContainer = () => {
 			)
 		);
 	};
+	const printWorkspace = () => {
+		const workspaceElement = document.getElementById('workspace');
+		if (workspaceElement) {
+				const originalContent = document.body.innerHTML;
+				document.body.innerHTML = workspaceElement.outerHTML;
+				window.print();
+				document.body.innerHTML = originalContent;
+		}
+};
 
 	return (
 		<div>
@@ -35,6 +44,7 @@ export const AppContainer = () => {
 					listOfNotes={listOfNotes}
 					addNewNote={addNewNote}
 					deleteNote={deleteNote}
+					printWorkspace={printWorkspace}
 				/>
 				<Routes>
 					<Route path='' element={<StartPage />} />

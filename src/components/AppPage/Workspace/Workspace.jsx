@@ -64,12 +64,13 @@ export const Workspace = ({ listOfNotes, updateNoteName }) => {
 	};
 
 	return (
-		<div className={style.workspace}>
+		<div className={style.workspace} id='workspace'>
 			<div>
 				<input
 					className={style.title}
 					value={note?note.name:noteName}
 					onChange={handleNameChange}
+					placeholder='Tytuł'
 				/>
 			</div>
 			<div>
