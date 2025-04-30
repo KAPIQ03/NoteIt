@@ -55,7 +55,7 @@ export const SignIn = () => {
 		console.log('Form Submitted');
 		const data = JSON.parse(JSON.stringify(e));
 		console.log(data);
-		navigate('/appContainer');
+		navigate('/AppPage');
 	};
 	return (
 		<div className={style.login}>

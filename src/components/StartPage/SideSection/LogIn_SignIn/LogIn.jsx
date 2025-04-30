@@ -31,17 +31,15 @@ export const LogIn = () => {
 		}
 	};
 	const onSubmit = e => {
-		console.log('Form Submitted');
 		const data = JSON.parse(JSON.stringify(e));
-		console.log(data);
 		if (validateEmail(data.email)) {
 			setIsEmailValid(false);
 		} else {
 			setIsEmailValid(true);
 			setEmailError(true);
 		}
-		if (validateEmail(data.email) && data.password == 'a') {
-			navigate('/appContainer'); //Nawigacja do nowej ścieżki
+		if (validateEmail(data.email) && data.password ==='a') {
+			navigate('/AppPage'); //Nawigacja do nowej ścieżki
 		} else {
 			setEmailError(true);
 			setIsPasswordValid(true);

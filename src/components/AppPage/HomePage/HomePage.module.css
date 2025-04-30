@@ -1,0 +1,34 @@
+.container {
+	width: 85%;
+	background-color: #f2f2f2;
+	overflow: scroll;
+	padding: 2rem;
+	font-size: 1rem;
+}
+.info {
+	font-family: 'Inter';
+}
+.container h3 {
+	font-size: 1.7rem;
+}
+.container h2 {
+	font-size: 4rem;
+}
+code {
+	background-color: #e4e4e4;
+	border-radius: 2px;
+	padding: 3px 8px;
+	color: #ff0066;
+}
+.line {
+	margin-bottom: 1rem;
+}
+.paragraph {
+	margin: 2rem 3rem;
+}
+.line > p{
+  margin: 0.6rem;
+}
+.line > ol{
+  padding:0;
+}
