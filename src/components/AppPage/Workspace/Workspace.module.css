@@ -83,10 +83,10 @@ ol {
 	body {
 		margin: 0;
 		padding: 0;
+		width:210mm;
 	}
 	#workspace {
 		margin: 5mm;
-		width: 100%;
 	}
 	.workspace {
 		width: 90%;

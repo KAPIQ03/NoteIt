@@ -1,5 +1,4 @@
 import { React, useState } from 'react';
-import { Link } from 'react-router-dom';
 import style from './ListOfNotes.module.css';
 import assets from '../../../constants/assets';
 import {
@@ -23,6 +22,7 @@ export const ListOfNotes = ({
 	};
 	const handleNoteClick = noteId => {
 		setSelectedNoteId(noteId);
+		navigate(`/AppPage/${noteId}`);
 	};
 	return (
 		<div className={style.container}>
@@ -57,8 +57,7 @@ export const ListOfNotes = ({
 			</div>
 			<div className={style.listOfNotes}>
 				{listOfNotes.map(note => (
-					<Link
-						to={`/AppPage/${note.id}`}
+					<div
 						key={note.id}
 						onClick={() => handleNoteClick(note.id)}
 						className={[
@@ -68,7 +67,7 @@ export const ListOfNotes = ({
 						{note.name.length > 20 || note.name.length === 0
 							? note.name.slice(0, 20) + '...'
 							: note.name}
-					</Link>
+					</div>
 				))}
 			</div>
 		</div>

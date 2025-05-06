@@ -2,10 +2,10 @@
 
 ## Opis projektu
 NoteIt to aplikacja stworzona w React, umożliwiająca tworzenie i edytowanie własnych notatek za pomocą znaczników markdown. Aplikacja została stworzona na potrzeby zaliczenia przedmiotu Języki Skryptowe i Znaczników.
+
 ![Zrzut ekranu logowania](./docs/Login.jpeg)
 ![Zrzut ekranu aplikacji](./docs/AppPage.jpeg)
 
-![Zrzut ekranu aplikacji](./docs/screenshot.png)
 ## Technologie
 - React
 - JavaScript (ES6+)
