@@ -24,8 +24,8 @@
 	cursor: pointer;
 	width: 100%;
 }
-.title::placeholder{
-	opacity:0.35;
+.title::placeholder {
+	opacity: 0.35;
 }
 .workspace h1 {
 	font-size: 3rem;
@@ -41,6 +41,9 @@
 }
 .workspace p {
 	padding: 5px 0;
+}
+.workspace code {
+	padding: 3px 8px;
 }
 .workspace strong {
 	font-weight: 600;
@@ -83,19 +86,31 @@ ol {
 	body {
 		margin: 0;
 		padding: 0;
-		width:210mm;
 	}
 	#workspace {
 		margin: 5mm;
 	}
 	.workspace {
-		width: 90%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
 	}
 	.editLine {
 		display: none;
 	}
 	.markdownTag {
 		page-break-inside: avoid;
+	}
+	.title {
+		font-size: 30px;
+	}
+	.workspace p {
+		font-size: 16px;
+		margin: 0;
+		padding: 5px;
+	}
+	.workspace img{
+		width: 200px;
 	}
 
 	@page {

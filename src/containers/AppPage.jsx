@@ -21,6 +21,8 @@ export const AppPage = () => {
 						? listOfNotes[listOfNotes.length - 1].id + 1
 						: 1
 				}`,
+				content: [''],
+				editableIndex: 0,
 			},
 		]);
 	};
@@ -35,6 +37,20 @@ export const AppPage = () => {
 			)
 		);
 	};
+	const updateContent = (id, newContent) => {
+		setListOfNotes(prevNotes =>
+			prevNotes.map(note =>
+				note.id === id ? { ...note, content: newContent } : note
+			)
+		);
+	};
+	const updateIndex = (id, newEditableIndex) => {
+		setListOfNotes(prevNotes =>
+			prevNotes.map(note =>
+				note.id === id ? { ...note, editableIndex: newEditableIndex } : note
+			)
+		);
+	};
 	const printWorkspace = () => {
 		const workspaceElement = document.getElementById('workspace');
 		if (workspaceElement) {
@@ -46,6 +62,8 @@ export const AppPage = () => {
 			console.error('Nie znaleziono elementu');
 			return;
 		}
+		navigate('/AppPage');
+		window.location.reload();
 	};
 
 	return (
@@ -66,6 +84,8 @@ export const AppPage = () => {
 								<Workspace
 									listOfNotes={listOfNotes}
 									updateNoteName={updateNoteName}
+									updateContent={updateContent}
+									updateIndex={updateIndex}
 								/>
 							}
 						/>

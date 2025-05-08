@@ -3,12 +3,19 @@ import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import style from './Workspace.module.css';
 
-export const Workspace = ({ listOfNotes, updateNoteName }) => {
+export const Workspace = ({
+	listOfNotes,
+	updateNoteName,
+	updateContent,
+	updateIndex,
+}) => {
 	const { noteId } = useParams();
-	const [lines, setLines] = useState(['']); // Lista linii edytora
-	const [editableIndex, setEditableIndex] = useState(0); // Pierwsza linia aktywna domyślnie
 	const inputRefs = useRef([]); // Przechowuje referencje do elementów
 	const note = listOfNotes.find(note => note.id === parseInt(noteId));
+	const [editableIndex, setEditableIndex] = useState(
+		note ? note.editableIndex : 0
+	);
+	const [lines, setLines] = useState(note ? note.content : ['']);
 	const [noteName, setNoteName] = useState(note ? note.name : '');
 
 	useEffect(() => {
@@ -17,12 +24,31 @@ export const Workspace = ({ listOfNotes, updateNoteName }) => {
 		}
 	}, [editableIndex]);
 
+	useEffect(() => {
+		if (note && note.id !== noteId) {
+			setLines(note.content || ['']);
+			setEditableIndex(note.editableIndex);
+		}
+	}, [noteId]);
+
+	useEffect(() => {
+		if (editableIndex !== null) {
+			updateIndex(note.id, editableIndex);
+		}
+	}, [editableIndex]);
+
+	useEffect(() => {
+		if (note && JSON.stringify(note.content) !== JSON.stringify(lines)) {
+			updateContent(note.id, lines);
+		}
+	}, [lines, note, updateContent]);
+
 	const handleKeyDown = (e, index) => {
 		if (e.key === 'Enter') {
 			e.preventDefault();
 			if (index === 0 && lines[0].trim() === '') {
 				return;
-			} //!
+			}
 			setLines(prevLines => {
 				const newLines = [...prevLines];
 				newLines.splice(index + 1, 0, '');
@@ -68,7 +94,7 @@ export const Workspace = ({ listOfNotes, updateNoteName }) => {
 			<div>
 				<input
 					className={style.title}
-					value={note?note.name:noteName}
+					value={note ? note.name : noteName}
 					onChange={handleNameChange}
 					placeholder='Tytuł'
 				/>

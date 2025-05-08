@@ -18,6 +18,7 @@ export const ListOfNotes = ({
 	const [selectedNoteId, setSelectedNoteId] = useState(null);
 	const navigate = useNavigate();
 	const moveToHome = () => {
+		setSelectedNoteId(null);
 		navigate('/AppPage');
 	};
 	const handleNoteClick = noteId => {
