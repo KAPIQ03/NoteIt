@@ -29,13 +29,13 @@ export const Workspace = ({
 			setLines(note.content || ['']);
 			setEditableIndex(note.editableIndex);
 		}
-	}, [noteId]);
+	}, [noteId, note]);
 
 	useEffect(() => {
-		if (editableIndex !== null) {
+		if (editableIndex !== null && note) {
 			updateIndex(note.id, editableIndex);
 		}
-	}, [editableIndex]);
+	}, [editableIndex, note, updateIndex]);
 
 	useEffect(() => {
 		if (note && JSON.stringify(note.content) !== JSON.stringify(lines)) {
