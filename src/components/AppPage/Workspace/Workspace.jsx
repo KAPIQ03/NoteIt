@@ -25,7 +25,7 @@ export const Workspace = ({
 	}, [editableIndex]);
 
 	useEffect(() => {
-		if (note && note.id !== noteId) {
+		if (note && note.id !== parseInt(noteId)) {
 			setLines(note.content || ['']);
 			setEditableIndex(note.editableIndex);
 		}
@@ -35,7 +35,8 @@ export const Workspace = ({
 		if (editableIndex !== null && note) {
 			updateIndex(note.id, editableIndex);
 		}
-	}, [editableIndex, note, updateIndex]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [editableIndex]);
 
 	useEffect(() => {
 		if (note && JSON.stringify(note.content) !== JSON.stringify(lines)) {
