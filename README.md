@@ -1,72 +1,91 @@
-# NoteIt
+# <img src="./src/assets/logo/NoteIt.png" width="100" align="center" alt="NoteIt Logo" /> NoteIt
 
-## Opis projektu
+A sleek, modern Markdown-based note-taking application built with **React**. NoteIt empowers users to create, edit, and organize thoughts with a clean interface and powerful markdown support.
 
-NoteIt to aplikacja stworzona w React, umożliwiająca tworzenie i edytowanie własnych notatek za pomocą znaczników markdown. Program na ten moment nie zawiera bazy dancyh ani innego systemu zapisu notatek. Aplikacja została stworzona na potrzeby zaliczenia przedmiotu Języki Skryptowe i Znaczników.
+> **Note:** This project was developed for the *Scripting and Markup Languages* (Języki Skryptowe i Znaczników) course. It currently operates as a front-end prototype without a persistent database.
 
-## Technologie
+---
 
-- React
-- JavaScript (ES6+)
-- HTML5
-- CSS3
+## ✨ Features
 
-## Funkcjonalności
+- 📝 **Markdown Integration** – Write notes using full Markdown syntax support.
+- 🖼️ **Live Preview** – See your changes in real-time.
+- 📄 **Export to PDF** – Download or print your notes directly from the app.
+- 🎨 **Minimalist Design** – Focused workspace for distraction-free writing.
+- 🔄 **Dynamic Management** – Easily add, edit, and delete notes.
+- 🔐 **Authentication Flow** – Prototype login and registration system.
 
-- Tworzenie notatek za pomocą znaczników markdown
-- Edycja notatek
-- Usuwanie notatek
-- Pobieranie lub drukowanie notatek
+---
 
-## Instalacja
+## 🚀 Getting Started
 
-1. Sklonuj repozytorium:
+### Prerequisites
 
-```bash
-git clone https://github.com/KAPIQ03/NoteIt.git
-```
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [npm](https://www.npmjs.com/) (installed automatically with Node.js)
 
-2. Przejdź do katalogu projektu:
+### Installation
 
-```bash
-cd NoteIt
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/KAPIQ03/NoteIt.git
+   cd NoteIt
+   ```
 
-3. Zainstaluj zależności:
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm install
-```
+### Running Locally
 
-## Uruchomienie
-
-Aby uruchomić aplikację w trybie deweloperskim, użyj:
-
+To start the development server:
 ```bash
 npm start
 ```
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
-Aplikacja będzie dostępna pod adresem: [http://localhost:3000](http://localhost:3000).
+---
 
-## Użytkowanie
+## 🛠️ Tech Stack
 
-Przez brak bazy danych nie działa system logowania i tworzenia użytkownika. Został on stworzony jedynie jako front aplikacji. Aby się zalogować wprować poprawnie skonstrułowany adres e-mail.(np. `a@b.c`)
-Jako hasło wpisz: `a`.
+- **Framework:** [React 19](https://react.dev/)
+- **Routing:** [React Router](https://reactrouter.com/)
+- **Markdown:** [React-Markdown](https://github.com/remarkjs/react-markdown) & [Remark](https://remark.js.org/)
+- **Forms:** [React Hook Form](https://react-hook-form.com/)
+- **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
+- **Styling:** CSS Modules (Modern CSS3)
 
-![Zrzut ekranu logowania](./docs/Login.jpeg)
+---
 
-Po zalogowaniu można tworzyć notatki kożystając z znaczników markdown.
-Przyciski na prawym panelu służą (od prawej):
+## 💡 How to Use
 
-- przejście do strony startowej z listą wspieranych znaczników
-- przejście do widoku druku, lub pobrania notatki w PDF
-- usuwanie aktualnej (podświetlonej) notatki
-- dodanie nowej notatki
+As this version lacks a database, you can access the dashboard using the following credentials:
 
-W celu zmiany nazwy notatki wystarczy nacisnąć na jej nazwę w widoku edycji notatki.
+- **Email:** `a@b.c` (or any valid email format)
+- **Password:** `a`
 
-![Zrzut ekranu aplikacji](./docs/AppPage.jpeg)
+### Login Screen
+![Login Screen](./docs/Login.jpeg)
 
-## Autorzy
+### Workspace Controls
+Inside the application, the right-side panel allows you to:
+- 🏠 **Home:** View the list of supported markdown tags.
+- 🖨️ **Print:** Export your note as a PDF.
+- 🗑️ **Delete:** Remove the current note.
+- ➕ **Add:** Create a new workspace for your thoughts.
 
-- Kacper Szamszon
+*To rename a note, simply click on its title in the editor view.*
+
+### Application View
+![App Interface](./docs/AppPage.jpeg)
+
+---
+
+## 👤 Author
+
+- **Kacper Szamszon**
+
+---
+
+*This project is for educational purposes as part of the Scripting and Markup Languages course.*
